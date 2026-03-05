@@ -24,146 +24,223 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
                 <li class="nav-item"><a class="nav-link" href="#form">Form</a></li>
+
+                <!-- Tombol Wishlist dengan Badge -->
+                <li class="nav-item ms-2">
+                    <button class="btn btn-outline-light btn-sm position-relative" id="btnWishlistNav"
+                        data-bs-toggle="modal" data-bs-target="#modalWishlist">
+                        <i class="bi bi-heart-fill me-1"></i> Wishlist
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            id="wishlistBadge">0</span>
+                    </button>
+                </li>
+
+                <!-- Tombol Dark Mode -->
+                <li class="nav-item ms-2">
+                    <button class="btn btn-outline-light btn-sm" id="btnDarkMode">
+                        <i class="bi bi-moon-fill" id="darkModeIcon"></i>
+                        <span id="darkModeText">Dark Mode</span>
+                    </button>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero text-center text-white d-flex align-items-center">
-        <div class="container">
-            <h1 class="GirlCult">Welcome to GirlCult Store</h1>
-            <p class="lead">Freaky is good</p>            
+<!-- Modal Wishlist -->
+<div class="modal fade" id="modalWishlist" tabindex="-1" aria-labelledby="modalWishlistLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalWishlistLabel">My WishList</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Item wishlist akan di-render di sini oleh JS -->
+                <ul class="list-group" id="wishlistItems">
+                    <li class="list-group-item text-muted">Your wishlist is empty</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btnKosongkanWishlist">Clear All</button>
+            </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- Statistik Cards (Section Product) -->
-    <div class="container my-5">
-        <div class="row text-center g-4">
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title mt-3">Product total</h5>
-                        <p class="display-6 fw-bold">3</p>
-                    </div>
+<!-- Hero Section -->
+<section id="home" class="hero text-center text-white d-flex align-items-center">
+    <div class="container">
+        <h1 class="GirlCult">Welcome to GirlCult Store</h1>
+        <p class="lead">Freaky is good</p>
+    </div>
+</section>
+
+<!-- Statistik Cards -->
+<div class="container my-5">
+    <div class="row text-center g-4">
+        <div class="col-md-4">
+            <div class="card dashboard-card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mt-3">Product Total</h5>
+                    <p class="display-6 fw-bold">3</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title mt-3">In Stock</h5>
-                        <p class="display-6 fw-bold">54</p>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card dashboard-card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mt-3">In Stock</h5>
+                    <p class="display-6 fw-bold" id="totalStock">54</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card dashboard-card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title mt-3">New collection</h5>
-                        <p class="display-6 fw-bold">3</p>
-                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card dashboard-card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mt-3">New Collection</h5>
+                    <p class="display-6 fw-bold">3</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Daftar Produk (Bonus) -->
-    <div class="container mt-5" id="products">
-        <h3 class="mb-4 fw-semibold"><i class="bi bi-grid me-2"></i>Discover GirlCult</h3>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="assets/Girlcult Peaches Series Blush Cream.png" class="card-img-top" alt="GirlCult Blush" style="height: 250px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Peaches Series Blush Cream</h5>
-                        <p class="card-text"> Its creamy texture seamlessly blends into the skin, offering a natural, dewy finish. 
-                            The blush is enriched with nourishing ingredients, including Jojoba Seed Oil, White Lotus Seed Oil, 
-                            and Peach Blossom Extract, which provide hydration and antioxidant benefits.</p>
-                        <p class="fw-bold text-primary">Rp 365.000</p>
-                        <p class="text-muted">Stock: 25</p>
-                        <button class="btn btn-outline-primary btn-sm">Detail</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="assets/Girlcult 15-Color Eyeshadow Palette.png" class="card-img-top" alt="Floating Palette" style="height: 250px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Girlcult 15-Color Eyeshadow Palette</h5>
-                        <p class="card-text"> This 15-color eyeshadow palette embodies richness in matte finishes, offering a profound and textured feel. 
-                            The entire palette is crafted with a professional, velvety texture, ensuring a delicate powder quality.</p>
-                        <p class="fw-bold text-primary">Rp 522.000</p>
-                        <p class="text-muted">Stock: 17</p>
-                        <button class="btn btn-outline-primary btn-sm">Detail</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="assets/Girlcult Miao Witchcraft Series 8-Color Eyeshadow Palette.png" class="card-img-top" alt="Starcore Palette" style="height: 250px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Girlcult Miao Witchcraft Series 8-Color Eyeshadow Palette</h5>
-                        <p class="card-text">Embrace the ancient allure of Miao culture with the Girlcult Miao Witchcraft Series 8-Color Eyeshadow Palette. 
-                            Inspired by the mystical practices and sacred artistry of the Miao people, this palette weaves together tradition and modern beauty. </p>
-                        <p class="fw-bold text-primary">Rp 522.000</p>
-                        <p class="text-muted">Stock: 12</p>
-                        <button class="btn btn-outline-primary btn-sm">Detail</button>
+<!-- Daftar Produk -->
+<div class="container mt-5" id="products">
+    <h3 class="mb-4 fw-semibold"><i class="bi bi-grid me-2"></i>Discover GirlCult</h3>
+    <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <img src="assets/Girlcult Peaches Series Blush Cream.png" class="card-img-top" alt="GirlCult Blush" style="height: 250px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Peaches Series Blush Cream</h5>
+                    <p class="card-text flex-grow-1">Its creamy texture seamlessly blends into the skin, offering a natural, dewy finish.
+                        Enriched with Jojoba Seed Oil, White Lotus Seed Oil, and Peach Blossom Extract.</p>
+                    <p class="fw-bold text-primary">Rp 365.000</p>
+                    <p class="text-muted mb-2">Stock: <span class="stok-angka fw-bold" id="stok-1">25</span></p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm btn-beli" data-id="stok-1" data-nama="Peaches Series Blush Cream">
+                            <i class="bi bi-cart-plus me-1"></i>buy
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm btn-wishlist" data-nama="Peaches Series Blush Cream">
+                            <i class="bi bi-heart me-1"></i>Wishlist
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <img src="assets/Girlcult 15-Color Eyeshadow Palette.png" class="card-img-top" alt="Floating Palette" style="height: 250px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Girlcult 15-Color Eyeshadow Palette</h5>
+                    <p class="card-text flex-grow-1">This 15-color eyeshadow palette embodies richness in matte finishes.
+                        Crafted with a professional, velvety texture ensuring a delicate powder quality.</p>
+                    <p class="fw-bold text-primary">Rp 522.000</p>
+                    <p class="text-muted mb-2">Stock: <span class="stok-angka fw-bold" id="stok-2">17</span></p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm btn-beli" data-id="stok-2" data-nama="Girlcult 15-Color Eyeshadow Palette">
+                            <i class="bi bi-cart-plus me-1"></i>Buy
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm btn-wishlist" data-nama="Girlcult 15-Color Eyeshadow Palette">
+                            <i class="bi bi-heart me-1"></i>Wishlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <img src="assets/Girlcult Miao Witchcraft Series 8-Color Eyeshadow Palette.png" class="card-img-top" alt="Starcore Palette" style="height: 250px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Girlcult Miao Witchcraft Series 8-Color Eyeshadow Palette</h5>
+                    <p class="card-text flex-grow-1">Inspired by the mystical practices and sacred artistry of the Miao people,
+                        this palette weaves together tradition and modern beauty.</p>
+                    <p class="fw-bold text-primary">Rp 522.000</p>
+                    <p class="text-muted mb-2">Stock: <span class="stok-angka fw-bold" id="stok-3">12</span></p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm btn-beli" data-id="stok-3" data-nama="Girlcult Miao Witchcraft 8-Color Palette">
+                            <i class="bi bi-cart-plus me-1"></i>Buy
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm btn-wishlist" data-nama="Girlcult Miao Witchcraft 8-Color Palette">
+                            <i class="bi bi-heart me-1"></i>Wishlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+</div>
 
-    <!-- Form Input Data -->
-    <div class="container mt-5 mb-5" id="form">
-        <h3 class="mb-4 fw-semibold"><i class="bi bi-plus-circle me-2"></i>Add new pallate</h3>
-        <div class="card p-4 shadow">
-            <form>
-                <div class="mb-3">
-                    <label for="namaPalette" class="form-label">Pallate name</label>
-                    <input type="text" class="form-control" id="namaPalette" placeholder="..." required>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="harga" class="form-label">Price (Rp)</label>
-                        <input type="number" class="form-control" id="harga" placeholder="..." required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="stok" class="form-label">Stock</label>
-                        <input type="number" class="form-control" id="stok" placeholder="..."" required>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="varian" class="form-label">Color Variant</label>
-                    <select class="form-select" id="varian" required>
-                        <option value="" selected disabled>Select variant</option>
-                        <option>Neutral</option>
-                        <option>Pastel</option>
-                        <option>Bold & Glitter</option>
-                        <option>Earth Tone</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="deskripsi" class="form-label">Short Description</label>
-                    <textarea class="form-control" id="deskripsi" rows="2" placeholder="Describe the palette..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-success"><i class="bi bi-save me-2"></i>Save</button>
-            </form>
-        </div>
+<!-- Suggestion & feedback -->
+<div class="container mt-5 mb-5" id="form">
+    <h3 class="mb-4 fw-semibold"><i class="bi bi-chat-dots me-2"></i>Suggestions & Feedback</h3>
+    <div class="card p-4 shadow">
+        <p class="text-muted mb-4">Please fill in the form completely</p>
+        <form id="formSaranKritik">
+
+            <!-- Field 1: Nama -->
+            <div class="mb-3">
+                <input type="text" class="form-control" id="namaUser" placeholder="Name*" required>
+            </div>
+
+            <!-- Field 2: Email -->
+            <div class="mb-3">
+                <input type="email" class="form-control" id="emailUser" placeholder="Email*" required>
+            </div>
+
+            <!-- Field 3: Nomor HP (opsional) -->
+            <div class="mb-3">
+                <input type="tel" class="form-control" id="phoneUser" placeholder="Phone (optional)">
+            </div>
+
+            <!-- Field 4: Kategori Feedback -->
+            <div class="mb-3">
+                <select class="form-select" id="kategori" required>
+                    <option value="" selected disabled>Select Category</option>
+                    <option value="saran">Suggestion</option>
+                    <option value="kritik">Criticism</option>
+                    <option value="pertanyaan">Question</option>
+                    <option value="lainnya">Other</option>
+                </select>
+            </div>
+
+            <!-- Field 5: Pesan -->
+            <div class="mb-3">
+                <textarea class="form-control" id="pesanUser" rows="4" 
+                    placeholder="Please enter your message here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">
+                <i class="bi bi-send me-2"></i>Send Message
+            </button>
+        </form>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2026 GirlCult store</p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <p class="mb-0">&copy; 2026 GirlCult Store</p>
+    </div>
+</footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="js/script.js"></script>
 </body>
 </html>
